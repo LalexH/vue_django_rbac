@@ -1,0 +1,85 @@
+<template>
+    <el-header>CMDB系统</el-header>
+    <el-container>
+      <el-aside>
+        <el-scrollbar>
+          <el-menu>
+            <el-sub-menu>
+              <template #title>
+                <el-icon><user/></el-icon>用户管理
+              </template>
+              <el-menu-item-group>
+                <el-menu-item >用户列表</el-menu-item>
+                <el-menu-item >用户权限</el-menu-item>
+            </el-menu-item-group>
+            </el-sub-menu>
+          </el-menu>
+        </el-scrollbar>
+      </el-aside>
+
+      <el-main>
+        <el-scrollbar>
+          <el-table :data="tableData">
+            <el-table-column prop="date" label="Date"/>
+            <el-table-column prop="name" label="Name"/>
+            <el-table-column prop="address" label="Address" />
+        </el-table>
+        </el-scrollbar>
+      </el-main>
+
+    </el-container>
+</template>
+<script lang="ts" setup>
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+]
+
+</script>
+<style scoped>
+#app {
+  text-align: center;
+  display: none;
+  color: var(--ep-text-color-primary);
+}
+body, html {
+  height: 100%;
+}
+.el-container {
+  height: 100%;
+}
+
+.el-header {
+  background-color: #b5b5e6;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+}
+
+.el-aside {
+  background: #b5e8cd;
+  height: 100%;
+}
+
+.el-main {
+  background: #48574f;
+}
+</style>
