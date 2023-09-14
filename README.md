@@ -11,5 +11,5 @@
 ![avatar](other/角色管理.png)
 ![avatar](other/权限管理.png)
 ![avatar](other/菜单管理.png)
-![avatar](other/角色设置权限和菜单.png)
+![avatar](other/角色设置菜单和权限.png)
 ![avatar](other/个人中心.png)
