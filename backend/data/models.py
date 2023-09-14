@@ -37,6 +37,7 @@ class SysMenu(models.Model):
     menu_icon = models.CharField(verbose_name="菜单图标", max_length=64, )
     route_path = models.CharField(verbose_name="route_path", max_length=128, default="")
     parent_id = models.IntegerField(verbose_name="parent_id", default=0, )
+    index = models.IntegerField(verbose_name="优先级", default=0, )
     create_time = models.DateTimeField(verbose_name="创建时间", auto_now_add=True)
     update_time = models.DateTimeField(verbose_name="更新时间", auto_now=True)
 
@@ -45,6 +46,7 @@ class SysMenu(models.Model):
         verbose_name = "菜单表"
         verbose_name_plural = verbose_name
         unique_together = (("menu_title", "route_path"),)
+
 
 
 class SysPermission(models.Model):

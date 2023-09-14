@@ -116,7 +116,7 @@ class RoleViewSet(ModelViewSet):
 
 
 class MenuViewSet(ModelViewSet):
-    queryset = SysMenu.objects.filter()
+    queryset = SysMenu.objects.all().order_by('index')
     serializer_class = SysMenuSerializer
     lookup_field = "id"
     filter_class = SysMenuFilter
@@ -227,7 +227,7 @@ def get_menu(role_id_list, is_super=False):
         menus_id_list = list(
             models.SysRoleMenu.objects.filter(role_id__in=role_id_list).values_list("menu_id", flat=True))
 
-    for menus_obj in models.SysMenu.objects.filter(id__in=menus_id_list, parent_id=0):
+    for menus_obj in models.SysMenu.objects.filter(id__in=menus_id_list, parent_id=0).order_by('index'):
         menus_dict = {
             "id": menus_obj.id,
             "menu_title": menus_obj.menu_title,
@@ -237,7 +237,8 @@ def get_menu(role_id_list, is_super=False):
             "children": []
         }
 
-        for child_menus_obj in models.SysMenu.objects.filter(id__in=menus_id_list, parent_id=menus_obj.id):
+        for child_menus_obj in models.SysMenu.objects.filter(
+                id__in=menus_id_list, parent_id=menus_obj.id).order_by('index'):
             menus_dict["children"].append({
                 "id": child_menus_obj.id,
                 "menu_title": child_menus_obj.menu_title,
