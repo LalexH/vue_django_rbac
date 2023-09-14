@@ -5,3 +5,5 @@
 ## 依赖版本见：
 ### backend/common.txt
 ### front/package.json
+
+![avatar](other/个人中心.png)
