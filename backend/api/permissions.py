@@ -6,6 +6,10 @@ class Permission(BasePermission):
         url = "/{}/{}".format(request.path.split("/")[1], request.path.split("/")[2])
         method = request.method
 
+
+
+        # user = jwt_decode_handler(request.META.get("HTTP_TOKEN", None))
+
         # 用户修改密码权限校验
         if url == "/api/user" and method == "PUT":
             uid = request.data["id"]
